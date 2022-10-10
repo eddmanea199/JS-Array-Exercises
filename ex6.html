@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>App2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Ex6</h2>
+  <p>Rezolvă cerințele</p>
+
+    <div class="form-group">
+      <label for="input">Input</label>
+      <input type="number" class="form-control" id="nr" value=" ">
+    </div>
+
+    <button class="btn btn-primary" onclick="f1()">Adauga element</button>
+	<br>
+	<br>
+	<p id="rezultat"></p>
+	<br>
+	<button class="btn btn-primary" onclick="f2()">Să se afişeze şi să se numere elementele pare de pe poziţiile impare ale unui vector.</button>
+	<br>
+	<br>
+	<p id="a1"></p>
+	<p id="a2"></p>
+	<button class="btn btn-primary" onclick="f3()">Să se numere elementele pozitive şi pare</button>
+	<br>
+	<br>
+	<p id="b1"></p>
+	<p id="b2"></p>
+	<button class="btn btn-primary" onclick="f4()">Calculati produsul elementelor negative.</button>
+	<br>
+	<br>
+	<p id="c"></p>
+	<button class="btn btn-primary" onclick="f5()">Să se calculeze media aritmetica a elementelor pozitive.</button>
+	<br>
+	<br>
+	<p id="d"></p>
+	
+</div>
+</body>
+	
+<script>
+var v=[];
+function f1(){
+	v.push(parseInt(document.getElementById("nr").value));
+	var rezultat=document.getElementById("rezultat");
+	rezultat.innerHTML=v;	
+}
+
+function f2(){
+	var v1=[];
+	var counter=0;
+	for (var i=0;i<v.length;i++){
+		if((v[i]%2==0)&&(i%2!=0)){
+			v1+=v[i]+",";
+			counter++;
+		}
+	}
+	a1.innerHTML="Afișează elementele pare de pe poziţiile impare: "+v1;
+	a2.innerHTML="Numărul elementelor: "+counter;
+}
+
+function f3(){
+	var nr_pare=0;
+	var nr_impare=0;
+		for (var i=0;i<v.length;i++){
+		if((v[i]%2==0)){
+			nr_pare++;
+		}
+		if((v[i]%2!=0)){
+			nr_impare++;
+		}
+	}
+	b1.innerHTML="Numărul elementelor pare este: "+nr_pare;
+	b2.innerHTML="Numărul elementelor impare este: "+nr_impare;
+
+}
+
+function f4(){
+
+		var p=1;
+		for (var i=0;i<v.length;i++){
+		if((v[i]<0)){
+			p*=v[i];
+		}
+		}
+		c.innerHTML="Produsul elementelor este: "+p;
+}
+
+function f5(){
+		var c=0;
+		var ma=0;
+		var s=0;
+		for(var i=0;i<v.length;i++){
+			if(v[i]>0){
+			s+=v[i];
+			c++;
+			}
+		}
+		ma=parseFloat(s/c);
+		d.innerHTML=ma;
+
+}
+
+	
+</script>
+</html>

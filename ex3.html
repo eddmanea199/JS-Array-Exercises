@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>App2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Ex3</h2>
+  <p>Afișează valoarea componentei cu număr maxim de divizori</p>
+
+    <div class="form-group">
+      <label for="input">Input</label>
+      <input type="number" class="form-control" id="nr" value=" ">
+    </div>
+
+    <button class="btn btn-primary" onclick="f1()">Adauga element</button>
+	<br>
+	<br>
+	<p id="rezultat"></p>
+	<br>
+	<button class="btn btn-primary" onclick="f2()">Afisarea componenta cu nr. maxim de divizori</button>
+	<br>
+	<br>
+	<p id="maxim"></p>
+</div>
+</body>
+	
+<script>
+var v=[];
+function f1(){
+	v.push(parseInt(document.getElementById("nr").value));
+	var rezultat=document.getElementById("rezultat");
+	rezultat.innerHTML=v;	
+}
+
+function f2(){
+	var elem=v[0];
+	var min_div=0;
+
+   for(var j=1;j<=elem;j++)
+	if(elem%j==0)min_div++;
+   for(i=1;i<v.length;i++)
+   {
+   var nr_div=0;
+   for(var k=1;k<=v[i];k++)
+   if(v[i]%k==0)nr_div++;
+   if((nr_div>=min_div)&&(elem>=v[i]))
+    {
+   min_div=nr_div;
+   elem=v[i];
+    }
+   }
+   maxim.innerHTML=elem;
+}
+	
+</script>
+</html>
